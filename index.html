@@ -39,6 +39,12 @@
             cursor: pointer;
             font-weight: bold;
         }
+        .increment-button {
+            width: 20%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
         #result {
             margin-top: 20px;
             font-size: 20px;
@@ -57,6 +63,7 @@
         <h1>Window Washing Price Calculator</h1>
         <label for="numExteriorWindows">Number of Exterior Windows Including Sill and Frame:</label>
         <input type="number" id="numExteriorWindows" placeholder="Enter Number of Exterior Windows">
+        <button class="increment-button" onclick="incrementCount('numExteriorWindows')">+</button>
 
         <label for="numInteriorWindows">Number of Interior Windows Including Tracks:</label>
         <input type="number" id="numInteriorWindows" placeholder="Enter Number of Interior Windows">
@@ -126,6 +133,17 @@
 
         // Call updateDateTime initially to display the current date and time
         updateDateTime();
+
+        // Function to increment count for each input
+        function incrementCount(inputId) {
+            var inputElement = document.getElementById(inputId);
+            var currentValue = parseInt(inputElement.value);
+            if (!isNaN(currentValue)) {
+                inputElement.value = currentValue + 1;
+            } else {
+                inputElement.value = 1;
+            }
+        }
     </script>
 </body>
 </html>
