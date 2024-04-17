@@ -111,13 +111,13 @@
     <script>
         // Add your JavaScript code here
         function calculatePrice() {
-            var numExteriorWindows = parseInt(document.getElementById('numExteriorWindows').value);
-            var numInteriorWindows = parseInt(document.getElementById('numInteriorWindows').value);
-            var numDoors = parseInt(document.getElementById('numDoors').value);
-            var numSkylights = parseInt(document.getElementById('numSkylights').value);
-            var numFrenchPanes = parseInt(document.getElementById('numFrenchPanes').value);
-            var numScreens = parseInt(document.getElementById('numScreens').value);
-            var numFixtures = parseInt(document.getElementById('numFixtures').value);
+            var numExteriorWindows = parseInt(document.getElementById('numExteriorWindows').value || 0);
+            var numInteriorWindows = parseInt(document.getElementById('numInteriorWindows').value || 0);
+            var numDoors = parseInt(document.getElementById('numDoors').value || 0);
+            var numSkylights = parseInt(document.getElementById('numSkylights').value || 0);
+            var numFrenchPanes = parseInt(document.getElementById('numFrenchPanes').value || 0);
+            var numScreens = parseInt(document.getElementById('numScreens').value || 0);
+            var numFixtures = parseInt(document.getElementById('numFixtures').value || 0);
 
             // Prices for each item
             var exteriorWindowPrice = 6.50; 
