@@ -69,12 +69,12 @@
     <main>
         <h1>Price Calculator</h1>
         <div class="input-container">
-            <input type="number" id="numExteriorWindows" placeholder="Enter Number of Exterior Windows">
+            <input type="number" id="numExteriorWindows" placeholder="Enter Number of Exterior Window Panes">
             <button class="increment-button" onclick="incrementCount('numExteriorWindows')">+</button>
         </div>
 
         <div class="input-container">
-            <input type="number" id="numInteriorWindows" placeholder="Enter Number of Interior Windows">
+            <input type="number" id="numInteriorWindows" placeholder="Enter Number of Interior Window Panes">
             <button class="increment-button" onclick="incrementCount('numInteriorWindows')">+</button>
         </div>
 
@@ -120,8 +120,8 @@
             var numFixtures = parseInt(document.getElementById('numFixtures').value || 0);
 
             // Prices for each item
-            var exteriorWindowPrice = 6.50; 
-            var interiorWindowPrice = 5; 
+            var exteriorWindowPrice = 3.25; 
+            var interiorWindowPrice = 2.50; 
             var doorsPrice = 3; 
             var skylightPrice = 10;
             var frenchPanePrice = 0.84;
