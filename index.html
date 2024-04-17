@@ -137,6 +137,9 @@
                              (numScreens * screenPrice) +
                              (numFixtures * fixturePrice);
 
+            // Round total price to nearest dollar
+            totalPrice = Math.round(totalPrice);
+
             // Display result
             document.getElementById('result').innerHTML = "Suggested Price: $" + totalPrice.toFixed(2);
         }
