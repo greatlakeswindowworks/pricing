@@ -208,7 +208,7 @@
             if (numFrenchPanes > 0) clipboardData += `${numFrenchPanes} French Panes $${(numFrenchPanes * frenchPanePrice).toFixed(2)}\n`;
             if (numScreens > 0) clipboardData += `${numScreens} Screens $${(numScreens * screenPrice).toFixed(2)}\n`;
             if (numFixtures > 0) clipboardData += `${numFixtures} Fixtures $${(numFixtures * fixturePrice).toFixed(2)}\n`;
-            clipboardData += `Total Price: $${totalPrice.toFixed(2)}`;
+            clipboardData += `Total Price: $${Math.round(totalPrice)}`;
 
             // Copy to clipboard
             navigator.clipboard.writeText(clipboardData).then(function() {
