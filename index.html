@@ -201,13 +201,13 @@
 
             // Create the string for clipboard
             var clipboardData = "";
-            if (numExteriorWindows > 0) clipboardData += `${numExteriorWindows} Exterior Windows $${(numExteriorWindows * exteriorWindowPrice).toFixed(2)}\n`;
-            if (numInteriorWindows > 0) clipboardData += `${numInteriorWindows} Interior Windows $${(numInteriorWindows * interiorWindowPrice).toFixed(2)}\n`;
-            if (numDoors > 0) clipboardData += `${numDoors} Doors $${(numDoors * doorsPrice).toFixed(2)}\n`;
-            if (numSkylights > 0) clipboardData += `${numSkylights} Skylights $${(numSkylights * skylightPrice).toFixed(2)}\n`;
-            if (numFrenchPanes > 0) clipboardData += `${numFrenchPanes} French Panes $${(numFrenchPanes * frenchPanePrice).toFixed(2)}\n`;
-            if (numScreens > 0) clipboardData += `${numScreens} Screens $${(numScreens * screenPrice).toFixed(2)}\n`;
-            if (numFixtures > 0) clipboardData += `${numFixtures} Fixtures $${(numFixtures * fixturePrice).toFixed(2)}\n`;
+            if (numExteriorWindows > 0) clipboardData += `${numExteriorWindows} Exterior Windows $${Math.round(numExteriorWindows * exteriorWindowPrice)}\n`;
+            if (numInteriorWindows > 0) clipboardData += `${numInteriorWindows} Interior Windows $${Math.round(numInteriorWindows * interiorWindowPrice)}\n`;
+            if (numDoors > 0) clipboardData += `${numDoors} Doors $${Math.round(numDoors * doorsPrice)}\n`;
+            if (numSkylights > 0) clipboardData += `${numSkylights} Skylights $${Math.round(numSkylights * skylightPrice)}\n`;
+            if (numFrenchPanes > 0) clipboardData += `${numFrenchPanes} French Panes $${Math.round(numFrenchPanes * frenchPanePrice)}\n`;
+            if (numScreens > 0) clipboardData += `${numScreens} Screens $${Math.round(numScreens * screenPrice)}\n`;
+            if (numFixtures > 0) clipboardData += `${numFixtures} Fixtures $${Math.round(numFixtures * fixturePrice)}\n`;
             clipboardData += `Total Price: $${Math.round(totalPrice)}`;
 
             // Copy to clipboard
