@@ -104,6 +104,7 @@
         </div>
 
         <button onclick="calculatePrice()">Calculate Price</button>
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
 
         <div id="result"></div>
         <br><br>
@@ -170,6 +171,44 @@
                 inputElement.value = 1;
             }
         }
+
+        // Function to copy data to clipboard
+        function copyToClipboard() {
+            var numExteriorWindows = parseInt(document.getElementById('numExteriorWindows').value || 0);
+            var numInteriorWindows = parseInt(document.getElementById('numInteriorWindows').value || 0);
+            var numDoors = parseInt(document.getElementById('numDoors').value || 0);
+            var numSkylights = parseInt(document.getElementById('numSkylights').value || 0);
+            var numFrenchPanes = parseInt(document.getElementById('numFrenchPanes').value || 0);
+            var numScreens = parseInt(document.getElementById('numScreens').value || 0);
+            var numFixtures = parseInt(document.getElementById('numFixtures').value || 0);
+
+            // Prices for each item
+            var exteriorWindowPrice = 3.25; 
+            var interiorWindowPrice = 2.50; 
+            var doorsPrice = 3; 
+            var skylightPrice = 10;
+            var frenchPanePrice = 0.84;
+            var screenPrice = 3;
+            var fixturePrice = 10;
+
+            // Create the string for clipboard
+            var clipboardData = "";
+            if (numExteriorWindows > 0) clipboardData += `${numExteriorWindows} Exterior Windows $${(numExteriorWindows * exteriorWindowPrice).toFixed(2)}\n`;
+            if (numInteriorWindows > 0) clipboardData += `${numInteriorWindows} Interior Windows $${(numInteriorWindows * interiorWindowPrice).toFixed(2)}\n`;
+            if (numDoors > 0) clipboardData += `${numDoors} Doors $${(numDoors * doorsPrice).toFixed(2)}\n`;
+            if (numSkylights > 0) clipboardData += `${numSkylights} Skylights $${(numSkylights * skylightPrice).toFixed(2)}\n`;
+            if (numFrenchPanes > 0) clipboardData += `${numFrenchPanes} French Panes $${(numFrenchPanes * frenchPanePrice).toFixed(2)}\n`;
+            if (numScreens > 0) clipboardData += `${numScreens} Screens $${(numScreens * screenPrice).toFixed(2)}\n`;
+            if (numFixtures > 0) clipboardData += `${numFixtures} Fixtures $${(numFixtures * fixturePrice).toFixed(2)}\n`;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(clipboardData).then(function() {
+                alert('Data copied to clipboard');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
     </script>
 </body>
 </html>
+
