@@ -104,7 +104,7 @@
         </div>
 
         <button onclick="calculatePrice()">Calculate Price</button>
-        <button onclick="copyToClipboard()">Copy to Clipboard</button>
+        <button onclick="copyToClipboard()">Copy Quote for Active Knocker</button>
 
         <div id="result"></div>
         <br><br>
@@ -191,6 +191,14 @@
             var screenPrice = 3;
             var fixturePrice = 10;
 
+            var totalPrice = (numExteriorWindows * exteriorWindowPrice) +
+                             (numInteriorWindows * interiorWindowPrice) +
+                             (numDoors * doorsPrice) +
+                             (numSkylights * skylightPrice) +
+                             (numFrenchPanes * frenchPanePrice) +
+                             (numScreens * screenPrice) +
+                             (numFixtures * fixturePrice);
+
             // Create the string for clipboard
             var clipboardData = "";
             if (numExteriorWindows > 0) clipboardData += `${numExteriorWindows} Exterior Windows $${(numExteriorWindows * exteriorWindowPrice).toFixed(2)}\n`;
@@ -200,10 +208,11 @@
             if (numFrenchPanes > 0) clipboardData += `${numFrenchPanes} French Panes $${(numFrenchPanes * frenchPanePrice).toFixed(2)}\n`;
             if (numScreens > 0) clipboardData += `${numScreens} Screens $${(numScreens * screenPrice).toFixed(2)}\n`;
             if (numFixtures > 0) clipboardData += `${numFixtures} Fixtures $${(numFixtures * fixturePrice).toFixed(2)}\n`;
+            clipboardData += `Total Price: $${totalPrice.toFixed(2)}`;
 
             // Copy to clipboard
             navigator.clipboard.writeText(clipboardData).then(function() {
-                alert('Data copied to clipboard');
+                alert('Data Copied. Now Paste This into ACTIVE KNOCKER Notes');
             }, function(err) {
                 console.error('Could not copy text: ', err);
             });
