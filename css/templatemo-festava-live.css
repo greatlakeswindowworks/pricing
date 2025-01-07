@@ -368,22 +368,25 @@ strong {
 }
 
 .sticky-wrapper.is-sticky .navbar {
-  background-color: #ffffff;
-  color: var(--primary-color);
+  background-color: #ffffff;  /* Background color when sticky */
+  color: var(--primary-color); /* Text color when sticky */
 }
 
+/* Default navbar background */
 .navbar {
   background: transparent;
   z-index: 9;
 }
 
+/* Navbar brand styles */
 .navbar-brand,
 .navbar-brand:hover {
-  color: var(--white-color);
+  color: var(--white-color); /* Default brand color */
   font-size: var(--h5-font-size);
   font-weight: var(--font-weight-bold);
 }
 
+/* Navbar links styles */
 .navbar-expand-lg .navbar-nav .nav-link {
   border-radius: var(--border-radius-large);
   margin: 10px;
@@ -392,7 +395,7 @@ strong {
 
 .navbar-nav .nav-link {
   display: inline-block;
-  color: var(--white-color);
+  color: var(--white-color);  /* Default link color */
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-normal);
   position: relative;
@@ -400,11 +403,18 @@ strong {
   padding-bottom: 15px;
 }
 
+/* Hover and active link styles */
 .navbar-nav .nav-link.active, 
 .navbar-nav .nav-link:hover {
   color: var(--secondary-color);
 }
 
+/* Sticky navbar text color change */
+.sticky-wrapper.is-sticky .navbar-nav .nav-link {
+  color: var(--primary-color); /* Change link color when sticky */
+}
+
+/* Navbar toggler (hamburger menu) styles */
 .navbar-toggler {
   border: 0;
   padding: 0;
@@ -470,6 +480,7 @@ strong {
 .navbar-toggler .navbar-toggler-icon::after {
   top: 8px;
 }
+
 
 
 /*---------------------------------------
