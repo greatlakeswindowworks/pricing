@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Lakes Window Works Pricing Calculator</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #280EFF; /* Updated background color */
+            color: #fff;
+        }
+        #logo {
+            padding-right: 10px; /* Added padding */
+        }
+        main {
+            padding: 20px;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .input-container input {
+            flex: 1; /* Make input fill remaining space */
+            padding: 10px;
+            box-sizing: border-box;
+            margin-right: 5px;
+        }
+        .input-container button {
+            padding: 10px;
+            background-color: #280EFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #280EFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo"> <!-- Added id for logo -->
+            <img src="logo.png" alt="Great Lakes Window Works Logo" height="50">
+        </div>
+        <div id="currentDateTime"></div>
+    </header>
+    <main>
+        <h1>Price Calculator</h1>
+        <div class="input-container">
+            <input type="number" id="numExteriorWindows" placeholder="Enter Number of Exterior Window Panes">
+            <button class="increment-button" onclick="incrementCount('numExteriorWindows')">+</button>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="numInteriorWindows" placeholder="Enter Number of Interior Window Panes">
+            <button class="increment-button" onclick="incrementCount('numInteriorWindows')">+</button>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="numDoors" placeholder="Enter Number of Glass Doors/Doorwalls">
+            <button class="increment-button" onclick="incrementCount('numDoors')">+</button>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="numSkylights" placeholder="Enter Number of Skylights">
+            <button class="increment-button" onclick="incrementCount('numSkylights')">+</button>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="numFrenchPanes" placeholder="Enter Number of French Panes Exterior/Interior">
+            <button class="increment-button" onclick="incrementCount('numFrenchPanes')">+</button>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="numScreens" placeholder="Enter Number of Screens">
+            <button class="increment-button" onclick="incrementCount('numScreens')">+</button>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="numFixtures" placeholder="Enter Number of Light Fixtures">
+            <button class="increment-button" onclick="incrementCount('numFixtures')">+</button>
+        </div>
+
+        <button onclick="calculatePrice()">Calculate Price</button>
+        <button onclick="copyToClipboard()">Copy Quote for Active Knocker</button>
+
+        <div id="result"></div>
+        <br><br>
+        <h1>Job Calendar</h1>
+        <iframe src="https://calendar.google.com/calendar/embed?src=greatlakeswindowworks%40gmail.com&ctz=America%2FDetroit" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+        
+    </main>
+
+    <script>
+        // Add your JavaScript code here
+        function calculatePrice() {
+            var numExteriorWindows = parseInt(document.getElementById('numExteriorWindows').value || 0);
+            var numInteriorWindows = parseInt(document.getElementById('numInteriorWindows').value || 0);
+            var numDoors = parseInt(document.getElementById('numDoors').value || 0);
+            var numSkylights = parseInt(document.getElementById('numSkylights').value || 0);
+            var numFrenchPanes = parseInt(document.getElementById('numFrenchPanes').value || 0);
+            var numScreens = parseInt(document.getElementById('numScreens').value || 0);
+            var numFixtures = parseInt(document.getElementById('numFixtures').value || 0);
+
+            // Prices for each item
+            var exteriorWindowPrice = 4.75; 
+            var interiorWindowPrice = 4.75; 
+            var doorsPrice = 3; 
+            var skylightPrice = 10;
+            var frenchPanePrice = 0.95;
+            var screenPrice = 3;
+            var fixturePrice = 10;
+
+            // Calculate total price
+            var totalPrice = (numExteriorWindows * exteriorWindowPrice) +
+                             (numInteriorWindows * interiorWindowPrice) +
+                             (numDoors * doorsPrice) +
+                             (numSkylights * skylightPrice) +
+                             (numFrenchPanes * frenchPanePrice) +
+                             (numScreens * screenPrice) +
+                             (numFixtures * fixturePrice);
+
+            // Round total price to nearest dollar
+            totalPrice = Math.round(totalPrice);
+
+            // Display result
+            document.getElementById('result').innerHTML = "Suggested Price: $" + totalPrice.toFixed(2);
+        }
+
+        // Function to update current date and time
+        function updateDateTime() {
+            var dateTime = new Date();
+            var formattedDateTime = dateTime.toLocaleString();
+            document.getElementById('currentDateTime').innerHTML = formattedDateTime;
+        }
+
+        // Update current date and time every second
+        setInterval(updateDateTime, 1000);
+
+        // Call updateDateTime initially to display the current date and time
+        updateDateTime();
+
+        // Function to increment count for each input
+        function incrementCount(inputId) {
+            var inputElement = document.getElementById(inputId);
+            var currentValue = parseInt(inputElement.value);
+            if (!isNaN(currentValue)) {
+                inputElement.value = currentValue + 1;
+            } else {
+                inputElement.value = 1;
+            }
+        }
+
+        // Function to copy data to clipboard
+        function copyToClipboard() {
+            var numExteriorWindows = parseInt(document.getElementById('numExteriorWindows').value || 0);
+            var numInteriorWindows = parseInt(document.getElementById('numInteriorWindows').value || 0);
+            var numDoors = parseInt(document.getElementById('numDoors').value || 0);
+            var numSkylights = parseInt(document.getElementById('numSkylights').value || 0);
+            var numFrenchPanes = parseInt(document.getElementById('numFrenchPanes').value || 0);
+            var numScreens = parseInt(document.getElementById('numScreens').value || 0);
+            var numFixtures = parseInt(document.getElementById('numFixtures').value || 0);
+
+            // Prices for each item
+            var exteriorWindowPrice = 4.75; 
+            var interiorWindowPrice = 4.75; 
+            var doorsPrice = 3; 
+            var skylightPrice = 10;
+            var frenchPanePrice = 0.95;
+            var screenPrice = 3;
+            var fixturePrice = 10;
+
+            var totalPrice = (numExteriorWindows * exteriorWindowPrice) +
+                             (numInteriorWindows * interiorWindowPrice) +
+                             (numDoors * doorsPrice) +
+                             (numSkylights * skylightPrice) +
+                             (numFrenchPanes * frenchPanePrice) +
+                             (numScreens * screenPrice) +
+                             (numFixtures * fixturePrice);
+
+            // Create the string for clipboard
+            var clipboardData = "";
+            if (numExteriorWindows > 0) clipboardData += `${numExteriorWindows} Exterior Windows $${Math.round(numExteriorWindows * exteriorWindowPrice)}\n`;
+            if (numInteriorWindows > 0) clipboardData += `${numInteriorWindows} Interior Windows $${Math.round(numInteriorWindows * interiorWindowPrice)}\n`;
+            if (numDoors > 0) clipboardData += `${numDoors} Doors $${Math.round(numDoors * doorsPrice)}\n`;
+            if (numSkylights > 0) clipboardData += `${numSkylights} Skylights $${Math.round(numSkylights * skylightPrice)}\n`;
+            if (numFrenchPanes > 0) clipboardData += `${numFrenchPanes} French Panes $${Math.round(numFrenchPanes * frenchPanePrice)}\n`;
+            if (numScreens > 0) clipboardData += `${numScreens} Screens $${Math.round(numScreens * screenPrice)}\n`;
+            if (numFixtures > 0) clipboardData += `${numFixtures} Fixtures $${Math.round(numFixtures * fixturePrice)}\n`;
+            clipboardData += `Total Price: $${Math.round(totalPrice)}`;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(clipboardData).then(function() {
+                alert('Data Copied. Now Paste This into ACTIVE KNOCKER Notes');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+        function fetchLeaderboard() {
+            fetch('https://api.activeknocker.com/knock-pins?date=This%20Week&pin_ids=14034', {
+                headers: {
+                    'accept': '*/*',
+                    'x-api-key': 'f2f9c93eb1cfce4eea4adadd44418c7ab6b19ddc29ee091509ab89037077f551'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status) {
+                    const salesData = data.data;
+                    const salesCount = {};
+
+                    salesData.forEach(sale => {
+                        const salesperson = sale.assign_user_name;
+                        if (salesCount[salesperson]) {
+                            salesCount[salesperson]++;
+                        } else {
+                            salesCount[salesperson] = 1;
+                        }
+                    });
+
+                    const salesList = document.getElementById('salesList');
+                    salesList.innerHTML = '';
+
+                    for (const salesperson in salesCount) {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${salesperson}: ${salesCount[salesperson]} sales`;
+                        salesList.appendChild(listItem);
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching sales data:', error));
+        }
+
+        // Call fetchLeaderboard to display the leaderboard
+        fetchLeaderboard();
+    </script>
+</body>
+</html>
