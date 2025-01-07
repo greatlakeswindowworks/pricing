@@ -30,4 +30,18 @@
   
   })(window.jQuery);
 
+// JavaScript to change logo and make navbar sticky on scroll
+window.addEventListener('scroll', function () {
+    var navbar = document.getElementById('navbar');
+    var logo = document.getElementById('logo');
+
+    // Check scroll position
+    if (window.scrollY > 50) {
+        navbar.classList.add('sticky'); // Add sticky class to navbar
+        logo.src = 'path/to/scrolled-logo.png'; // Change to scrolled logo
+    } else {
+        navbar.classList.remove('sticky'); // Remove sticky class
+        logo.src = 'cropped.png'; // Revert to original logo
+    }
+});
 
