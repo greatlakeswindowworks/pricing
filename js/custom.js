@@ -38,7 +38,7 @@ window.addEventListener('scroll', function () {
     // Check scroll position
     if (window.scrollY > 50) {
         navbar.classList.add('sticky'); // Add sticky class to navbar
-        logo.src = 'path/to/scrolled-logo.png'; // Change to scrolled logo
+        logo.src = 'scrolled-logo.png'; // Change to scrolled logo
     } else {
         navbar.classList.remove('sticky'); // Remove sticky class
         logo.src = 'cropped.png'; // Revert to original logo
