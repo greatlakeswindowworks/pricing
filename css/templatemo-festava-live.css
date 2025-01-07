@@ -369,7 +369,7 @@ strong {
 
 .sticky-wrapper.is-sticky .navbar {
   background-color: #ffffff;  /* Background color when sticky */
-  color: var(--primary-color); /* Text color when sticky */
+  color: #280eff; /* Text color when sticky */
 }
 
 /* Default navbar background */
