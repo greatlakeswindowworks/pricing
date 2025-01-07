@@ -45,3 +45,15 @@ window.addEventListener('scroll', function () {
     }
 });
 
+// JavaScript to add the sticky class to navbar on scroll
+window.addEventListener('scroll', function () {
+    var stickyWrapper = document.querySelector('.sticky-wrapper');
+    
+    // Check if the user has scrolled past a certain point
+    if (window.scrollY > 50) {
+        stickyWrapper.classList.add('is-sticky'); // Add the 'is-sticky' class
+    } else {
+        stickyWrapper.classList.remove('is-sticky'); // Remove the 'is-sticky' class
+    }
+});
+
