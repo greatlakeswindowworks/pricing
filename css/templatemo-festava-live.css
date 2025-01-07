@@ -369,6 +369,7 @@ strong {
 
 .sticky-wrapper.is-sticky .navbar {
   background-color: #ffffff;
+  color: var(--primary-color);
 }
 
 .navbar {
