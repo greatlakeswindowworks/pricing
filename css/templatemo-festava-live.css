@@ -31,7 +31,7 @@ https://templatemo.com/tm-583-festava-live
   --h5-font-size:                 24px;
   --h6-font-size:                 22px;
   --p-font-size:                  18px;
-  --btn-font-size:                14px;
+  --btn-font-size:                10px;
   --copyright-font-size:          16px;
 
   --border-radius-large:          100px;
@@ -304,7 +304,6 @@ strong {
   line-height: normal;
   transition: all 0.3s;
   padding: 10px 20px;
-  width: 200px;
 }
 
 .custom-btn:hover {
