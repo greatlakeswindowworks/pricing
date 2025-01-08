@@ -278,7 +278,6 @@ strong {
 .nav-tabs .nav-link:focus h5, 
 .nav-tabs .nav-link:hover h5 {
   color: var(--primary-color);
-  text-decoration: underline;
 }
 
 
@@ -407,6 +406,7 @@ strong {
 .navbar-nav .nav-link.active, 
 .navbar-nav .nav-link:hover {
   color: var(--secondary-color);
+  text-decoration: underline;
 }
 
 /* Sticky navbar text color change */
