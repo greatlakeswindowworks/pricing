@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['contact-message']);
 
     // Email settings
-    $to = "greatlakeswindowworks@ghmail.com"; // Replace with your email address
+    $to = "greatlakeswindowworks@gmail.com"; // Replace with your email address
     $subject = "New Contact Form Submission";
     $headers = "From: $email" . "\r\n" .
                "Reply-To: $email" . "\r\n" .
